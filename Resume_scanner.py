@@ -4,6 +4,7 @@ from langchain.llms import HuggingFaceHub
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
+import os
 
 def compare(resume_texts, JD_text, flag='HuggingFace-BERT'):
     JD_embeddings = None
@@ -36,7 +37,8 @@ def load_summary_chain():
         input_variables=["text"],
         template="Summarize the following text:\n\n{text}\n\nSummary:"
     )
-    llm = ChatOpenAI(api_key="sk-proj-ye8LBnrvhFxuZEaaDruGT3BlbkFJc4c1eTGbWJCmcQ4d7HKM",
+
+    llm = ChatOpenAI(api_key=os.environ.get('OPEN_API_KEY'),
         model="gpt-3.5-turbo", temperature=1)
     summary_chain = LLMChain(
         llm=llm,
