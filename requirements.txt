@@ -1,0 +1,11 @@
+streamlit
+transformers
+torch
+pdfplumber
+nltk
+gensim
+scikit-learn
+langchain
+python-dotenv
+openai
+langchain-community==0.2.10
